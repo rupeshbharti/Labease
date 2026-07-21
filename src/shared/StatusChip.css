@@ -1,0 +1,53 @@
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--label-md-size);
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: var(--label-md-letter-spacing);
+  white-space: nowrap;
+}
+
+.status-chip__icon {
+  display: flex;
+  align-items: center;
+}
+
+.status-chip__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Color Variants */
+.status-chip--teal {
+  background: rgba(0, 163, 191, 0.12);
+  color: var(--on-secondary-container);
+}
+
+.status-chip--blue {
+  background: var(--primary-fixed);
+  color: var(--on-primary-fixed);
+}
+
+.status-chip--gray {
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+}
+
+.status-chip--green {
+  background: var(--success-container);
+  color: var(--success);
+}
+
+.status-chip--amber {
+  background: var(--warning-container);
+  color: #92400e;
+}
+
+.status-chip--red {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}

@@ -1,0 +1,171 @@
+.lab-content {
+  padding: var(--space-lg) var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .lab-content {
+    padding: var(--space-md);
+  }
+}
+
+/* Status Banner */
+.lab-status-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.lab-status-banner__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lab-status-banner__icon--warning {
+  background: var(--warning-container);
+  color: #92400e;
+}
+
+.lab-status-banner__icon--info {
+  background: var(--secondary-fixed);
+  color: var(--secondary);
+}
+
+.lab-status-banner__icon--success {
+  background: var(--success-container);
+  color: var(--success);
+}
+
+.lab-status-banner__icon--error {
+  background: var(--error-container);
+  color: var(--error);
+}
+
+@media (max-width: 480px) {
+  .lab-status-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Onboarding Wizard */
+.onboarding-wizard {
+  max-width: 640px;
+}
+
+.onboarding-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+.onboarding-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.onboarding-step__dot {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--body-sm-size);
+  font-weight: 600;
+  border: 2px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  transition: all var(--transition-fast);
+}
+
+.onboarding-step--active .onboarding-step__dot {
+  border-color: var(--primary-container);
+  background: var(--primary-container);
+  color: var(--on-primary);
+}
+
+.onboarding-step--done .onboarding-step__dot {
+  border-color: var(--success);
+  background: var(--success);
+  color: var(--on-success);
+}
+
+.onboarding-step__line {
+  flex: 1;
+  height: 2px;
+  background: var(--outline-variant);
+  min-width: 20px;
+}
+
+.onboarding-step--done + .onboarding-step__line,
+.onboarding-step__line--done {
+  background: var(--success);
+}
+
+.onboarding-step__label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .onboarding-step__label {
+    display: block;
+    font-size: var(--label-md-size);
+    color: var(--on-surface-variant);
+  }
+
+  .onboarding-step--active .onboarding-step__label {
+    color: var(--primary-container);
+    font-weight: 600;
+  }
+}
+
+/* Slot Calendar */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs);
+}
+
+.slot-day {
+  text-align: center;
+  padding: var(--space-xs);
+}
+
+.slot-day__label {
+  font-size: var(--label-md-size);
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  margin-bottom: var(--space-xs);
+}
+
+.slot-time {
+  padding: 6px;
+  border-radius: var(--radius);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--outline-variant);
+  margin-bottom: 4px;
+}
+
+.slot-time:hover {
+  border-color: var(--primary-container);
+}
+
+.slot-time--active {
+  background: var(--primary-fixed);
+  border-color: var(--primary-container);
+  color: var(--on-primary-fixed);
+}
+
+@media (max-width: 768px) {
+  .slot-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

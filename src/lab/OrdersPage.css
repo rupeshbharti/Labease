@@ -1,0 +1,114 @@
+.orders-page {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.orders-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+
+.orders-tab {
+  padding: 12px 20px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.orders-tab:hover {
+  color: var(--primary-color);
+}
+
+.orders-tab--active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.order-card {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-left: 4px solid var(--border-color);
+}
+
+.order-card--pending_lab_acceptance {
+  border-left-color: var(--warning);
+}
+
+.order-card--confirmed {
+  border-left-color: var(--info);
+}
+
+.order-card--phlebotomist_assigned {
+  border-left-color: var(--primary-color);
+}
+
+.order-card--report_ready {
+  border-left-color: var(--success);
+}
+
+.order-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.order-card__meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-card__ref {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--text-muted);
+}
+
+.order-card__title {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.order-card__details {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.order-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.timer-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--error-container);
+  color: var(--on-error-container);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: bold;
+}

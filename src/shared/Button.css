@@ -1,0 +1,129 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.3);
+}
+
+/* Sizes */
+.btn--sm {
+  height: 32px;
+  padding: 0 var(--space-sm);
+  font-size: var(--body-sm-size);
+}
+
+.btn--md {
+  height: 40px;
+  padding: 0 var(--space-md);
+  font-size: var(--body-sm-size);
+}
+
+.btn--lg {
+  height: 48px;
+  padding: 0 var(--space-lg);
+  font-size: var(--body-lg-size);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* Primary — Solid Medical Blue */
+.btn--primary {
+  background: var(--primary-container);
+  color: var(--on-primary);
+  border: none;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--primary);
+  box-shadow: var(--shadow-1);
+}
+
+.btn--primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Secondary — Ghost with Care Teal */
+.btn--secondary {
+  background: transparent;
+  color: var(--secondary);
+  border: 1.5px solid var(--secondary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: rgba(0, 163, 191, 0.08);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background: rgba(0, 163, 191, 0.15);
+}
+
+/* Tertiary — Text-only */
+.btn--tertiary {
+  background: transparent;
+  color: var(--primary-container);
+  border: none;
+  padding: 0 var(--space-xs);
+}
+
+.btn--tertiary:hover:not(:disabled) {
+  background: var(--surface-container);
+}
+
+/* Danger */
+.btn--danger {
+  background: var(--error);
+  color: var(--on-error);
+  border: none;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: #a31818;
+  box-shadow: var(--shadow-1);
+}
+
+/* Spinner */
+.btn__spinner {
+  animation: spin 1s linear infinite;
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+}
+
+/* Ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10%);
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.btn:active::after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+}

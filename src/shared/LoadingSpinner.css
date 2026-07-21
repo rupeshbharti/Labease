@@ -1,0 +1,26 @@
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.loading-spinner__icon {
+  animation: spin 1s linear infinite;
+  color: var(--primary-container);
+}
+
+.loading-spinner__text {
+  color: var(--on-surface-variant);
+}
+
+.loading-spinner--full-page {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  z-index: var(--z-fixed);
+}
