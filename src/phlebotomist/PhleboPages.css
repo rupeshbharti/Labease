@@ -8,43 +8,85 @@
   flex-direction: column;
 }
 
-.phlebo-topbar {
-  sticky: top;
+/* Desktop Header Navigation (Visible on Desktop / Tablet Screens) */
+.phlebo-desktop-header {
+  display: none;
+  background: var(--surface-container-lowest, #ffffff);
+  border-bottom: 1px solid var(--outline-variant, #EBECF0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   position: sticky;
   top: 0;
-  z-index: 40;
-  height: 56px;
-  background-color: var(--surface-container-lowest, #ffffff);
-  border-bottom: 1px solid var(--outline-variant, #EBECF0);
+  z-index: 50;
+}
+
+@media (min-width: 769px) {
+  .phlebo-desktop-header {
+    display: block;
+  }
+}
+
+.phlebo-desktop-header__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  box-shadow: var(--shadow-1);
 }
 
-.phlebo-topbar__brand {
+.phlebo-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  text-decoration: none;
 }
 
-.phlebo-topbar__logo {
-  width: 32px;
-  height: 32px;
+.phlebo-brand__logo {
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-lg);
-  background: var(--primary-container, #0052cc);
+  background: linear-gradient(135deg, var(--primary-container, #0052cc), var(--primary, #003d9b));
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.phlebo-topbar__title {
-  font-weight: 700;
+.phlebo-brand__name {
   font-size: 18px;
+  font-weight: 800;
   color: var(--primary, #003d9b);
   letter-spacing: -0.01em;
+}
+
+.phlebo-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phlebo-desktop-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface-variant, #434654);
+  transition: all 0.2s ease;
+}
+
+.phlebo-desktop-nav__link:hover {
+  background: var(--surface-container-low, #f3f4f6);
+  color: var(--primary, #003d9b);
+}
+
+.phlebo-desktop-nav__link--active {
+  background: var(--primary-fixed, #dae2ff);
+  color: var(--on-primary-fixed, #001848);
 }
 
 .phlebo-main-content {
@@ -53,9 +95,9 @@
 }
 
 .phlebo-page-container {
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 20px 16px;
+  padding: 24px 16px;
 }
 
 /* Duty Header */
@@ -154,6 +196,57 @@
   letter-spacing: 0.05em;
 }
 
+/* Map Route Context Banner */
+.phlebo-map-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #091C35, #003d9b);
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: var(--radius-xl);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 61, 155, 0.15);
+}
+
+.map-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-banner-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-banner-title {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  display: block;
+}
+
+.map-banner-address {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 2px 0 0;
+}
+
+.map-banner-distance {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
 /* Filter Tabs */
 .phlebo-filter-tabs {
   display: flex;
@@ -188,14 +281,14 @@
 .phlebo-task-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .task-card {
   background: var(--surface-container-lowest, #ffffff);
   border: 1px solid var(--outline-variant, #EBECF0);
   border-radius: var(--radius-xl);
-  padding: 16px;
+  padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -223,11 +316,25 @@
   color: var(--on-surface);
 }
 
+.task-card__patient-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
 .task-card__patient-name {
   font-size: 18px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0;
   color: var(--on-surface);
+}
+
+.task-card__order-ref {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--outline, #737685);
+  font-weight: 600;
 }
 
 .task-card__location {
@@ -236,11 +343,12 @@
   gap: 8px;
   font-size: 13px;
   color: var(--on-surface-variant);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .task-card__location p {
   margin: 0;
+  line-height: 1.4;
 }
 
 .task-card__phone {
@@ -248,7 +356,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .phone-link {
@@ -266,8 +374,8 @@
 }
 
 .tests-label {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 800;
   color: var(--outline, #737685);
   margin: 0 0 6px;
   letter-spacing: 0.05em;
@@ -289,6 +397,74 @@
   color: var(--on-surface-variant);
 }
 
+/* Active Task Stepper Bar (Stitch Active Task Flow Screen) */
+.task-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-container-low, #f3f4f6);
+  border: 1px solid var(--outline-variant, #EBECF0);
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-container-highest, #e1e2e4);
+  color: var(--on-surface-variant, #434654);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.step-item--active .step-circle {
+  background: var(--primary-container, #0052cc);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.15);
+}
+
+.step-item--done .step-circle {
+  background: var(--success, #00687A);
+  color: #ffffff;
+}
+
+.step-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--on-surface-variant);
+}
+
+.step-item--active .step-label {
+  color: var(--primary, #003d9b);
+}
+
+.step-item--done .step-label {
+  color: var(--success, #00687A);
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--outline-variant, #c3c6d6);
+  margin: 0 6px;
+  margin-bottom: 16px;
+}
+
+.step-line--done {
+  background: var(--success, #00687A);
+}
+
 .task-card__nav-row {
   margin-bottom: 14px;
 }
@@ -303,8 +479,8 @@
   background: var(--surface-container-low, #f3f4f6);
   color: var(--primary-container, #0052cc);
   border-radius: var(--radius-lg);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
@@ -623,3 +799,23 @@
   color: var(--on-surface-variant);
   font-weight: 600;
 }
+
+/* Helper Utilities */
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1; }
+.shrink-0 { flex-shrink: 0; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.uppercase { text-transform: uppercase; }
+.tracking-wider { letter-spacing: 0.05em; }
+.text-on-surface-variant { color: var(--on-surface-variant, #434654); }
+.text-on-surface { color: var(--on-surface, #091C35); }
+.text-primary { color: var(--primary, #003d9b); }
+.text-secondary { color: var(--secondary, #00687a); }
+.text-success { color: var(--success, #00687A); }
+.text-warning { color: var(--warning, #FFAB00); }

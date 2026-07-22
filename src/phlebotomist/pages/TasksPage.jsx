@@ -4,6 +4,7 @@ import DutyStatusToggle from '../components/DutyStatusToggle';
 import TaskCard from '../components/TaskCard';
 import CollectionModal from '../components/CollectionModal';
 import LoadingSpinner from '../../shared/LoadingSpinner';
+import { Navigation, MapPin } from 'lucide-react';
 
 export function TasksPage() {
   const {
@@ -26,7 +27,7 @@ export function TasksPage() {
   const [filter, setFilter] = useState('all');
 
   if (loading && tasks.length === 0) {
-    return <LoadingSpinner text="Retrieving task assignments..." />;
+    return <LoadingSpinner text="Retrieving daily tasks..." />;
   }
 
   const activeTasks = tasks.filter(t => t.status !== 'collected' && t.status !== 'failed');
@@ -38,8 +39,11 @@ export function TasksPage() {
     ? completedTasks 
     : tasks;
 
+  const nextActiveTask = activeTasks[0];
+
   return (
     <div className="phlebo-page-container">
+      {/* Schedule Header & Duty Switch */}
       <DutyStatusToggle
         isOnline={isOnline}
         isOffline={isOffline}
@@ -47,6 +51,27 @@ export function TasksPage() {
         onToggle={handleToggleOnline}
         onRefresh={loadTasks}
       />
+
+      {/* Map Route Context Bar (Stitch Daily Tasks Screen) */}
+      {nextActiveTask && (
+        <div className="phlebo-map-banner">
+          <div className="map-banner-content">
+            <div className="map-banner-icon">
+              <Navigation size={18} />
+            </div>
+            <div>
+              <span className="map-banner-title">NEXT PATIENT ROUTE</span>
+              <p className="map-banner-address">
+                {nextActiveTask.bookings?.patient_name || 'Patient'} • {nextActiveTask.bookings?.addresses?.city || 'Location Active'}
+              </p>
+            </div>
+          </div>
+          <span className="map-banner-distance flex items-center gap-1">
+            <MapPin size={14} />
+            2.4 km away
+          </span>
+        </div>
+      )}
 
       {/* Status Filter Tabs */}
       <div className="phlebo-filter-tabs">
@@ -76,7 +101,7 @@ export function TasksPage() {
           <div className="phlebo-empty-state">
             <p className="title-md">No tasks found</p>
             <p className="body-sm text-secondary">
-              {filter === 'active' ? 'You have no active pending task assignments right now.' : 'Assignments will appear here when allocated by diagnostic labs.'}
+              {filter === 'active' ? 'You have no pending task assignments right now.' : 'Assignments will appear here when allocated by diagnostic laboratories.'}
             </p>
           </div>
         ) : (
