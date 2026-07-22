@@ -5,10 +5,11 @@ import { AuthProvider, useAuth } from './auth/AuthProvider';
 import ProtectedRoute from './auth/ProtectedRoute';
 import LoadingSpinner from './shared/LoadingSpinner';
 
-// Auth pages (not lazy — needed immediately)
+// Auth & Public pages (not lazy — needed immediately)
 import LoginPage from './auth/LoginPage';
 import SignupPage from './auth/SignupPage';
 import ProfileSetup from './auth/ProfileSetup';
+import LandingPage from './landing/LandingPage';
 
 import { CartProvider } from './patient/CartContext';
 
@@ -73,8 +74,8 @@ export default function App() {
       <AuthProvider>
         <Suspense fallback={<LoadingSpinner fullPage text="Loading..." />}>
           <Routes>
-            {/* Root — redirects to role dashboard */}
-            <Route path="/" element={<RootRedirect />} />
+            {/* Landing Page */}
+            <Route path="/" element={<LandingPage />} />
 
             {/* Public Auth Routes */}
             <Route path="/login" element={<LoginPage />} />
