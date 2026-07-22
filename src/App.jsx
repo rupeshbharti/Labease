@@ -48,7 +48,9 @@ const HealthHistoryPage = lazy(() => import('./patient/HealthHistoryPage'));
 const PublicReportSharePage = lazy(() => import('./patient/PublicReportSharePage'));
 
 const PhleboLayout = lazy(() => import('./phlebotomist/PhleboLayout'));
-const PhleboDashboard = lazy(() => import('./phlebotomist/DashboardPage'));
+const PhleboTasksPage = lazy(() => import('./phlebotomist/pages/TasksPage'));
+const PhleboEarningsPage = lazy(() => import('./phlebotomist/pages/EarningsPage'));
+const PhleboProfilePage = lazy(() => import('./phlebotomist/pages/ProfilePage'));
 
 // Root redirect based on role
 function RootRedirect() {
@@ -126,7 +128,10 @@ export default function App() {
                 <PhleboLayout />
               </ProtectedRoute>
             }>
-              <Route index element={<PhleboDashboard />} />
+              <Route index element={<PhleboTasksPage />} />
+              <Route path="tasks" element={<PhleboTasksPage />} />
+              <Route path="earnings" element={<PhleboEarningsPage />} />
+              <Route path="profile" element={<PhleboProfilePage />} />
             </Route>
 
             {/* Admin Routes */}
