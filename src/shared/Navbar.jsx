@@ -6,22 +6,38 @@ import './Navbar.css';
  *
  * @param {Array} navItems - [{label, path, icon}]
  */
-export default function Navbar({ navItems = [] }) {
+export default function Navbar({ navItems = [], onMoreClick }) {
   return (
     <nav className="bottom-nav safe-area-bottom">
-      {navItems.map((item) => (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          end={item.end}
-          className={({ isActive }) =>
-            `bottom-nav__item ${isActive ? 'bottom-nav__item--active' : ''}`
-          }
-        >
-          <span className="bottom-nav__icon">{item.icon}</span>
-          <span className="bottom-nav__label">{item.label}</span>
-        </NavLink>
-      ))}
+      {navItems.map((item, index) => {
+        if (item.isMore) {
+          return (
+            <button
+              key="more-item"
+              type="button"
+              className="bottom-nav__item bottom-nav__button"
+              onClick={onMoreClick}
+            >
+              <span className="bottom-nav__icon">{item.icon}</span>
+              <span className="bottom-nav__label">{item.label}</span>
+            </button>
+          );
+        }
+
+        return (
+          <NavLink
+            key={item.path || index}
+            to={item.path}
+            end={item.end}
+            className={({ isActive }) =>
+              `bottom-nav__item ${isActive ? 'bottom-nav__item--active' : ''}`
+            }
+          >
+            <span className="bottom-nav__icon">{item.icon}</span>
+            <span className="bottom-nav__label">{item.label}</span>
+          </NavLink>
+        );
+      })}
     </nav>
   );
 }

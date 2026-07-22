@@ -92,10 +92,10 @@ export default function ReviewsPage() {
     : '0.0';
 
   return (
-    <div className="lab-reviews-page" style={{ padding: '24px', maxWidth: '800px', margin: '0 auto' }}>
+    <div className="lab-reviews-page" style={{ padding: '16px 12px 80px', maxWidth: '800px', margin: '0 auto' }}>
       
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
           <h1 className="headline-lg">Customer Feedback</h1>
           <p className="body-md text-secondary">View patient star ratings and reply to review text reviews</p>

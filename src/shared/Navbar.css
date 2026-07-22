@@ -32,6 +32,14 @@
   min-width: 56px;
 }
 
+.bottom-nav__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  margin: 0;
+}
+
 .bottom-nav__item--active {
   color: var(--primary-container);
 }

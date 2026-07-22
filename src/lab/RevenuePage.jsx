@@ -64,10 +64,10 @@ export default function RevenuePage() {
   const counts = revenueData?.counts || { total: 0, fulfilled: 0, cancelled: 0, active: 0 };
 
   return (
-    <div className="revenue-page" style={{ padding: '24px', maxWidth: '900px', margin: '0 auto' }}>
+    <div className="revenue-page" style={{ padding: '16px 12px 80px', maxWidth: '900px', margin: '0 auto' }}>
       
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
           <h1 className="headline-lg">Revenue & Payouts</h1>
           <p className="body-md text-secondary">Track diagnostic laboratory earnings, platform commission, and payouts</p>
@@ -128,7 +128,7 @@ export default function RevenuePage() {
           </div>
 
           {/* Breakdown layout */}
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             
             {/* Detailed Ledger split */}
             <Card style={{ padding: '20px', backgroundColor: 'var(--surface-container-lowest)', border: '1px solid var(--outline-variant)' }}>
@@ -169,7 +169,7 @@ export default function RevenuePage() {
             </Card>
           </div>
 
-          {/* Payout Schedule Histoy */}
+          {/* Payout Schedule History */}
           <Card style={{ padding: '20px', backgroundColor: 'var(--surface-container-lowest)', border: '1px solid var(--outline-variant)' }}>
             <h3 className="title-md" style={{ margin: '0 0 16px', fontWeight: 600 }}>Payout Disbursements (Weekly Schedule)</h3>
             {payouts.length === 0 ? (
@@ -177,7 +177,8 @@ export default function RevenuePage() {
                 No past disbursements logged.
               </div>
             ) : (
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', minWidth: '550px', borderCollapse: 'collapse', fontSize: '13px' }}>
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--outline-variant)', textAlign: 'left', color: 'var(--text-muted)', fontWeight: 600 }}>
                     <th style={{ padding: '8px 4px' }}>Disbursement Date</th>
@@ -209,6 +210,7 @@ export default function RevenuePage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             )}
           </Card>
         </div>

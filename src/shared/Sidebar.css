@@ -176,9 +176,67 @@
   color: var(--on-error-container);
 }
 
-/* Mobile: hide sidebar */
+.sidebar__mobile-close {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-variant);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar__mobile-close:hover {
+  background: var(--surface-container);
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Mobile: hide sidebar unless opened as mobile drawer */
 @media (max-width: 768px) {
   .sidebar {
     display: none;
+  }
+
+  .sidebar--mobile-open {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+    animation: slideInLeft 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
