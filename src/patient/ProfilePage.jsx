@@ -150,13 +150,13 @@ export default function ProfilePage() {
         {/* Health History Access Card */}
         <Card style={{ padding: '16px', backgroundColor: 'var(--primary-container)', border: '1px solid var(--primary)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', borderRadius: 'var(--radius-xl)' }} onClick={() => navigate('/patient/health-history')}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Activity className="text-primary" size={24} />
+            <Activity style={{ color: 'var(--on-primary)' }} size={24} />
             <div style={{ textAlign: 'left' }}>
-              <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--primary)' }}>View Health History & Trends</h3>
-              <p style={{ margin: '2px 0 0', fontSize: '12px', color: 'var(--primary)', opacity: 0.9 }}>Glucose, HbA1c parameter tracking & reports archive</p>
+              <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--on-primary)' }}>View Health History & Trends</h3>
+              <p style={{ margin: '2px 0 0', fontSize: '12px', color: 'var(--on-primary)', opacity: 0.9 }}>Glucose, HbA1c parameter tracking & reports archive</p>
             </div>
           </div>
-          <ChevronRight size={20} className="text-primary" />
+          <ChevronRight size={20} style={{ color: 'var(--on-primary)' }} />
         </Card>
 
         {/* Contact Info Card */}
@@ -277,7 +277,7 @@ export default function ProfilePage() {
             Share your unique referral link code with your family and friends. Both of you will get a discount on bookings when they sign up!
           </p>
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <div style={{ flex: 1, padding: '10px', border: '1px dashed var(--primary)', borderRadius: 'var(--radius)', backgroundColor: 'var(--primary-container)', textAlign: 'center', fontSize: '16px', fontWeight: 'bold', letterSpacing: '1px', color: 'var(--primary)' }}>
+            <div style={{ flex: 1, padding: '10px', border: '1px dashed var(--primary)', borderRadius: 'var(--radius)', backgroundColor: 'var(--primary-fixed)', textAlign: 'center', fontSize: '16px', fontWeight: 'bold', letterSpacing: '1px', color: 'var(--primary)' }}>
               {profile?.referral_code || `LBE-${profile?.name?.slice(0, 4).toUpperCase() || 'USER'}99`}
             </div>
             <Button

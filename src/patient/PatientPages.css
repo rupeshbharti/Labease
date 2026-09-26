@@ -179,7 +179,7 @@
 }
 
 .patient-desktop-header__link--active {
-  color: var(--primary);
+  color: var(--on-primary);
   background-color: var(--primary-container);
   font-weight: 700;
 }

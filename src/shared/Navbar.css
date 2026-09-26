@@ -41,7 +41,9 @@
 }
 
 .bottom-nav__item--active {
-  color: var(--primary-container);
+  color: var(--on-primary);
+  background-color: var(--primary-container);
+  border-radius: var(--radius-md);
 }
 
 .bottom-nav__icon {
@@ -51,15 +53,6 @@
   width: 24px;
   height: 24px;
   position: relative;
-}
-
-.bottom-nav__item--active .bottom-nav__icon::before {
-  content: '';
-  position: absolute;
-  inset: -4px -12px;
-  background: var(--primary-fixed);
-  border-radius: var(--radius-full);
-  z-index: -1;
 }
 
 .bottom-nav__icon svg {
@@ -75,6 +68,11 @@
 
 .bottom-nav__item--active .bottom-nav__label {
   font-weight: 700;
+  color: var(--on-primary);
+}
+
+.bottom-nav__item--active .bottom-nav__icon {
+  color: var(--on-primary);
 }
 
 /* Top Bar */

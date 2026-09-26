@@ -122,7 +122,7 @@ export default function LiveTrackingPage() {
       {/* Simulated SMS Toast Overlay */}
       {smsNotification && (
         <div style={{
-          backgroundColor: 'var(--primary-container)',
+          backgroundColor: 'var(--primary-fixed)',
           border: '2px solid var(--primary)',
           borderRadius: 'var(--radius-lg)',
           padding: '16px',
@@ -238,7 +238,7 @@ export default function LiveTrackingPage() {
 
       {/* Check-in OTP Verification Panel */}
       {booking.status === 'arrived' && booking.otp_code && (
-        <Card style={{ padding: '20px', marginBottom: '20px', backgroundColor: 'var(--primary-container)', border: '2px solid var(--primary)', borderRadius: 'var(--radius-xl)' }}>
+        <Card style={{ padding: '20px', marginBottom: '20px', backgroundColor: 'var(--primary-fixed)', border: '2px solid var(--primary)', borderRadius: 'var(--radius-xl)' }}>
           <h3 className="title-sm" style={{ margin: '0 0 8px', fontWeight: 700, fontSize: '15px', color: 'var(--primary)' }}>Sample Verification Code</h3>
           <p style={{ margin: '0 0 16px', fontSize: '13px', color: 'var(--primary)', opacity: 0.9 }}>
             Please share this 4-digit OTP code with the check-in collector agent to verify and log your sample collection.
