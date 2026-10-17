@@ -79,7 +79,7 @@ export default function HomePage() {
       turnaround_hours: 12
     };
     addToCart(packageItem);
-    showCartToast(`Added ${pkgName} ($${price}) to your diagnostic order`);
+    showCartToast(`Added ${pkgName} (₹${price}) to your diagnostic order`);
   };
 
   const handleSelectLabItem = (labName, price) => {
@@ -93,7 +93,7 @@ export default function HomePage() {
       turnaround_hours: 8
     };
     addToCart(labItem);
-    showCartToast(`Added ${labName} booking ($${price}) to your diagnostic order`);
+    showCartToast(`Added ${labName} booking (₹${price}) to your diagnostic order`);
   };
 
   const categories = [
@@ -121,7 +121,7 @@ export default function HomePage() {
         {/* Ambient organic medical glow circles */}
         <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed/25 blur-3xl pointer-events-none"></div>
         <div className="absolute top-12 -right-24 w-80 h-80 rounded-full bg-primary-fixed/30 blur-3xl pointer-events-none"></div>
-        
+
         <div className="max-w-[1200px] mx-auto px-lg relative z-10 flex flex-col items-center text-center">
           {/* Accreditations Pill */}
           <div className="inline-flex items-center gap-xs px-sm py-base rounded-full bg-surface-container-lowest text-primary shadow-sm mb-md border border-outline-variant/30">
@@ -155,11 +155,10 @@ export default function HomePage() {
                   key={tab.id}
                   type="button"
                   onClick={() => handleTabChange(tab.id)}
-                  className={`px-md py-xs rounded-lg font-label-md text-label-md transition-all duration-200 cursor-pointer ${
-                    activeTab === tab.id
-                      ? 'bg-primary text-on-primary shadow-sm font-semibold'
-                      : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
-                  }`}
+                  className={`px-md py-xs rounded-lg font-label-md text-label-md transition-all duration-200 cursor-pointer ${activeTab === tab.id
+                    ? 'bg-primary text-on-primary shadow-sm font-semibold'
+                    : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -181,7 +180,7 @@ export default function HomePage() {
               </div>
 
               {/* Location Picker Dropdown Simulation */}
-              <div 
+              <div
                 onClick={() => navigate('/patient/profile')}
                 className="flex items-center justify-between gap-sm px-sm py-xs bg-surface-container-lowest rounded-lg cursor-pointer min-w-[220px] hover:bg-surface-container transition-colors border border-outline-variant/30"
               >
@@ -399,8 +398,8 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-baseline justify-between pt-sm">
                   <div className="flex items-baseline gap-xs">
-                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">$79</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">$180</span>
+                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">₹5999</span>
+                    <span className="font-body-sm text-body-sm text-outline line-through">₹8999</span>
                   </div>
                   <span className="px-sm py-base rounded-md bg-error-container text-on-error-container font-label-md text-[11px] font-bold">56% OFF</span>
                 </div>
@@ -470,8 +469,8 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-baseline justify-between pt-sm">
                   <div className="flex items-baseline gap-xs">
-                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">$65</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">$140</span>
+                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">₹6500</span>
+                    <span className="font-body-sm text-body-sm text-outline line-through">₹8999</span>
                   </div>
                   <span className="px-sm py-base rounded-md bg-error-container text-on-error-container font-label-md text-[11px] font-bold">54% OFF</span>
                 </div>
@@ -541,8 +540,8 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-baseline justify-between pt-sm">
                   <div className="flex items-baseline gap-xs">
-                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">$85</span>
-                    <span className="font-body-sm text-body-sm text-outline line-through">$165</span>
+                    <span className="font-display-lg text-[28px] font-bold text-primary leading-none">₹8599</span>
+                    <span className="font-body-sm text-body-sm text-outline line-through">₹11999</span>
                   </div>
                   <span className="px-sm py-base rounded-md bg-error-container text-on-error-container font-label-md text-[11px] font-bold">48% OFF</span>
                 </div>
@@ -615,7 +614,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Home Pickup:</span>
-                  <span className="font-semibold text-secondary">Free ($0)</span>
+                  <span className="font-semibold text-secondary">Free (₹0)</span>
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Accreditations:</span>
@@ -626,11 +625,11 @@ export default function HomePage() {
             <div className="pt-md mt-md flex items-center justify-between border-t border-outline-variant/10">
               <div className="flex flex-col">
                 <span className="font-label-md text-[10px] uppercase text-outline">Total Package</span>
-                <span className="font-price-display text-price-display text-primary">$39</span>
+                <span className="font-price-display text-price-display text-primary">₹3999</span>
               </div>
               <button
                 type="button"
-                onClick={() => handleSelectLabItem('MediPath Diagnostics', 39)}
+                onClick={() => handleSelectLabItem('MediPath Diagnostics', 3999)}
                 className="px-md py-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors shadow-sm cursor-pointer"
               >
                 Select Lab
@@ -664,7 +663,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Home Pickup:</span>
-                  <span className="font-semibold text-on-surface">$10 (Express)</span>
+                  <span className="font-semibold text-on-surface">₹150 (Express)</span>
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Accreditations:</span>
@@ -675,11 +674,11 @@ export default function HomePage() {
             <div className="pt-md mt-md flex items-center justify-between border-t border-outline-variant/10">
               <div className="flex flex-col">
                 <span className="font-label-md text-[10px] uppercase text-outline">Total Package</span>
-                <span className="font-price-display text-price-display text-primary">$45</span>
+                <span className="font-price-display text-price-display text-primary">₹4999</span>
               </div>
               <button
                 type="button"
-                onClick={() => handleSelectLabItem('SwiftLab Express', 45)}
+                onClick={() => handleSelectLabItem('SwiftLab Express', 4999)}
                 className="px-md py-xs rounded-lg bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-label-md text-label-md transition-colors shadow-sm cursor-pointer"
               >
                 Select Lab
@@ -710,7 +709,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Home Pickup:</span>
-                  <span className="font-semibold text-secondary">Free ($0)</span>
+                  <span className="font-semibold text-secondary">Free (₹0)</span>
                 </div>
                 <div className="flex items-center justify-between text-body-sm text-[13px]">
                   <span className="text-on-surface-variant">Accreditations:</span>
@@ -721,11 +720,11 @@ export default function HomePage() {
             <div className="pt-md mt-md flex items-center justify-between border-t border-outline-variant/10">
               <div className="flex flex-col">
                 <span className="font-label-md text-[10px] uppercase text-outline">Total Package</span>
-                <span className="font-price-display text-price-display text-primary">$42</span>
+                <span className="font-price-display text-price-display text-primary">₹4299</span>
               </div>
               <button
                 type="button"
-                onClick={() => handleSelectLabItem('Apollo Clinical Labs', 42)}
+                onClick={() => handleSelectLabItem('Apollo Clinical Labs', 4299)}
                 className="px-md py-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors shadow-sm cursor-pointer"
               >
                 Select Lab
@@ -767,11 +766,11 @@ export default function HomePage() {
             <div className="pt-md mt-md flex items-center justify-between border-t border-outline-variant/10">
               <div className="flex flex-col">
                 <span className="font-label-md text-[10px] uppercase text-outline">Total Package</span>
-                <span className="font-price-display text-price-display text-primary">$32</span>
+                <span className="font-price-display text-price-display text-primary">₹3299</span>
               </div>
               <button
                 type="button"
-                onClick={() => handleSelectLabItem('LifePath Medical Center', 32)}
+                onClick={() => handleSelectLabItem('LifePath Medical Center', 3299)}
                 className="px-md py-xs rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors shadow-sm cursor-pointer"
               >
                 Select Lab
